@@ -47,6 +47,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <chrono>
 
 #include <configuru.hpp>
 #include <emilib/irange.hpp>
@@ -1101,6 +1102,7 @@ void run_config_file(const Options& options, const std::string& path)
 
 int main(int argc, char* argv[])
 {
+	auto start = std::chrono::high_resolution_clock::now();
 	loguru::init(argc, argv);
 
 	Options options;
@@ -1126,4 +1128,8 @@ int main(int argc, char* argv[])
 	for (const auto& file : files) {
 		run_config_file(options, file);
 	}
+	auto stop = std::chrono::high_resolution_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+
+	std::printf("Overall time taken: %lf\n", ((double)duration.count())/((double)1e6));	
 }
