@@ -1145,13 +1145,15 @@ int main(int argc, char* argv[])
 	if (files.empty()) {
 		files.push_back("samples.cfg");
 		files.push_back("samples2.cfg");
+		files.push_back("samples3.cfg");
+		files.push_back("samples4.cfg");
 	}
-	int num_threads = 2;
+	int num_threads = 4;
 	long size_per_thread = files.size()/num_threads;
 	//for (const auto& file : files) {
 	//#if DO_OPEN_MP
-	
-	#pragma omp parallel num_threads(files.size())
+	printf("size_per_thread = %d\n", size_per_thread);	
+	#pragma omp parallel num_threads(num_threads)
 	{
         //#endif
         int t = omp_get_thread_num();
@@ -1159,12 +1161,13 @@ int main(int argc, char* argv[])
         int end_index = (t+1)*size_per_thread;
 	printf("start_index %d to end_index %d\n", start_index, end_index);
 	#pragma omp barrier
-	#pragma omp for schedule(dynamic,8)
+	//#pragma omp for schedule(dynamic,8)
 	for(int i = start_index; i < end_index; i++){
 		printf("file num %d\n",i);
 		run_config_file(options, files[i]);
 	}
 	//#if DO_OPEN_MP
+	#pragma omp barrier
 	}
 	//#endif
 	
