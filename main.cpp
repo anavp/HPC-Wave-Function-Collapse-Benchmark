@@ -1153,21 +1153,21 @@ int main(int argc, char* argv[])
 	//for (const auto& file : files) {
 	//#if DO_OPEN_MP
 	printf("size_per_thread = %d\n", size_per_thread);	
-	#pragma omp parallel num_threads(num_threads)
+	#pragma omp parallel num_threads(num_threads) 
 	{
         //#endif
         int t = omp_get_thread_num();
 	int start_index = t*size_per_thread;
         int end_index = (t+1)*size_per_thread;
 	printf("start_index %d to end_index %d\n", start_index, end_index);
-	#pragma omp barrier
+	//#pragma omp barrier
 	//#pragma omp for schedule(dynamic,8)
 	for(int i = start_index; i < end_index; i++){
 		printf("file num %d\n",i);
 		run_config_file(options, files[i]);
 	}
 	//#if DO_OPEN_MP
-	#pragma omp barrier
+	//#pragma omp barrier
 	}
 	//#endif
 	
