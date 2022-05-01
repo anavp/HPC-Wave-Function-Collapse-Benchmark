@@ -60,7 +60,9 @@
 #include <jo_gif.cpp>
 
 #include "arrays.hpp"
-#define DO_OPEN_MP true
+#define DO_OPEN_MP false
+#include <omp.h>
+
 
 const auto kUsage = R"(
 wfc.bin [-h/--help] [--gif] [job=samples.cfg, ...]
@@ -1048,8 +1050,8 @@ std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const conf
 	const auto in_path = image_dir + image_filename;
 
 	const int    n              = config.get_or("n",             3);
-	const size_t out_width      = config.get_or("width",        96);
-	const size_t out_height     = config.get_or("height",       96);
+	const size_t out_width      = config.get_or("width",        48);
+	const size_t out_height     = config.get_or("height",       48);
 	const size_t symmetry       = config.get_or("symmetry",      8);
 	const bool   periodic_out   = config.get_or("periodic_out", true);
 	const bool   periodic_in    = config.get_or("periodic_in",  true);
@@ -1128,7 +1130,6 @@ int main(int argc, char* argv[])
 	Options options;
 
 	std::vector<std::string> files;
-
 	for (int i = 1; i < argc; ++i) {
 		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
 			printf(kUsage);
@@ -1143,11 +1144,34 @@ int main(int argc, char* argv[])
 
 	if (files.empty()) {
 		files.push_back("samples.cfg");
+		files.push_back("samples2.cfg");
 	}
+	int num_threads = 2;
+	long size_per_thread = files.size()/num_threads;
+	//for (const auto& file : files) {
+	//#if DO_OPEN_MP
+	
+	#pragma omp parallel num_threads(files.size())
+	{
+        //#endif
+        int t = omp_get_thread_num();
+	int start_index = t*size_per_thread;
+        int end_index = (t+1)*size_per_thread;
+	printf("start_index %d to end_index %d\n", start_index, end_index);
+	#pragma omp barrier
+	#pragma omp for schedule(dynamic,8)
+	for(int i = start_index; i < end_index; i++){
+		printf("file num %d\n",i);
+		run_config_file(options, files[i]);
+	}
+	//#if DO_OPEN_MP
+	}
+	//#endif
+	
 
-	for (const auto& file : files) {
-		run_config_file(options, file);
-	}
+	//for (const auto& file : files) {
+	//	run_config_file(options, file);
+	//}
 	auto stop = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 
