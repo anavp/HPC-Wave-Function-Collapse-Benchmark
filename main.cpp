@@ -385,7 +385,7 @@ bool OverlappingModel::propagate(Output* output) const
 {
 	bool did_change = false;
 	#if DO_OPEN_MP
-	#pragma omp for collapse(2) schedule(dynamic, 64)
+	#pragma omp for collapse(2) schedule(dynamic, 16)
 	#endif
 	for (int x1 = 0; x1 < _width; ++x1) {
 		for (int y1 = 0; y1 < _height; ++y1) {
@@ -653,74 +653,38 @@ TileModel::TileModel(const configuru::Config& config, std::string subset_name, i
 bool TileModel::propagate(Output* output) const
 {
 	bool did_change = false;
-	if(!_periodic_out){
 	#if DO_OPEN_MP	
 	#pragma omp for collapse(2) schedule(dynamic,8)
 	#endif
-	for (int x2 = 1; x2 < _width-1; ++x2) {
-		for (int y2 = 1; y2 < _height-1; ++y2) {
-			for (int d = 0; d < 4; ++d) {
-				int x1 = x2, y1 = y2;
-				if (d == 0) {
-						x1 = x2 - 1;
-				} else if (d == 1) {
-						y1 = y2 + 1;
-				} else if (d == 2) {
-						x1 = x2 + 1;
-				} else {
-						y1 = y2 - 1;
-				}
-
-				if (!output->_changes.get(x1, y1)) { continue; }
-
-				for (int t2 = 0; t2 < _num_patterns; ++t2) {
-					if (output->_wave.get(x2, y2, t2)) {
-						bool b = false;
-						for (int t1 = 0; t1 < _num_patterns && !b; ++t1) {
-							if (output->_wave.get(x1, y1, t1)) {
-								b = _propagator.get(d, t1, t2);
-							}
-						}
-						if (!b) {
-							output->_wave.set(x2, y2, t2, false);
-							output->_changes.set(x2, y2, true);
-							did_change = true;
-						}
-					}
-				}
-			}
-		}
-	}
-	}
-	else
-	{
-	#if DO_OPEN_MP  
-        #pragma omp for collapse(2) schedule(dynamic,8)
-        #endif
+	
 	for (int x2 = 0; x2 < _width; ++x2) {
 		for (int y2 = 0; y2 < _height; ++y2) {
 			for (int d = 0; d < 4; ++d) {
 				int x1 = x2, y1 = y2;
 				if (d == 0) {
 					if (x2 == 0) {
+						if (!_periodic_out) { continue; }
 						x1 = _width - 1;
 					} else {
 						x1 = x2 - 1;
 					}
 				} else if (d == 1) {
 					if (y2 == _height - 1) {
+						if (!_periodic_out) { continue; }
 						y1 = 0;
 					} else {
 						y1 = y2 + 1;
 					}
 				} else if (d == 2) {
 					if (x2 == _width - 1) {
+						if (!_periodic_out) { continue; }
 						x1 = 0;
 					} else {
 						x1 = x2 + 1;
 					}
 				} else {
 					if (y2 == 0) {
+						if (!_periodic_out) { continue; }
 						y1 = _height - 1;
 					} else {
 						y1 = y2 - 1;
@@ -746,7 +710,6 @@ bool TileModel::propagate(Output* output) const
 				}
 			}
 		}
-	}
 	}
 	return did_change;
 }
@@ -1035,38 +998,48 @@ void run_and_write(const Options& options, const std::string& name, const config
 {
 	const size_t limit       = config.get_or("limit",       0);
 	const size_t screenshots = config.get_or("screenshots", 2);
-
+	
+	#if DO_OPEN_MP
+        //#pragma omp for schedule(dynamic,8)
+	#endif
 	for (const auto i : irange(screenshots)) {
+	//for (long i=0;i<screenshots;i++) {
 		for (const auto attempt : irange(10)) {
+		//for (long attempt=0;attempt<10;attempt++) {
 			(void)attempt;
 			int seed = rand();
-
+			//printf("attempt= %lu\n",attempt);
 			Output output = create_output(model);
-
+			//printf("got output\n");
 			jo_gif_t gif;
-
+			//printf("Here1\n");
 			if (options.export_gif) {
 				const auto initial_image = model.image(output);
 				const auto gif_path = emilib::strprintf("output/%s_%lu.gif", name.c_str(), i);
 				const int gif_palette_size = 255; // TODO
 				gif = jo_gif_start(gif_path.c_str(), initial_image.width(), initial_image.height(), 0, gif_palette_size);
 			}
-
+			//printf("Here2\n");
 			const auto result = run(&output, model, seed, limit, options.export_gif ? &gif : nullptr);
 
 			if (options.export_gif) {
 				jo_gif_end(&gif);
 			}
-
+			//printf("Here3\n");
 			if (result == Result::kSuccess) {
 				const auto image = model.image(output);
+				//printf("Here5\n");
 				const auto out_path = emilib::strprintf("output/%s_%lu.png", name.c_str(), i);
+				//printf("Here6\n");
 				CHECK_F(stbi_write_png(out_path.c_str(), image.width(), image.height(), 4, image.data(), 0) != 0,
 				        "Failed to write image to %s", out_path.c_str());
+				//printf("Here7\n");
 				break;
 			}
+			//printf("Here4\n");
 		}
 	}
+	//printf("Here9\n");
 }
 
 std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const configuru::Config& config)
@@ -1096,8 +1069,8 @@ std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const conf
 std::unique_ptr<Model> make_tiled(const std::string& image_dir, const configuru::Config& config)
 {
 	const std::string subdir     = config["subdir"].as_string();
-	const size_t      out_width  = 5 * config.get_or("width",    48);
-	const size_t      out_height = 5 * config.get_or("height",   48);
+	const size_t      out_width  = 2 * config.get_or("width",    48);
+	const size_t      out_height = 2 * config.get_or("height",   48);
 	const std::string subset     = config.get_or("subset",   std::string());
 	const bool        periodic   = config.get_or("periodic", false);
 
@@ -1128,7 +1101,7 @@ void run_config_file(const Options& options, const std::string& path)
 
 	if (samples.count("overlapping")) {
 		for (const auto& p : samples["overlapping"].as_object()) {
-			break;
+			//break;
 		 	LOG_SCOPE_F(INFO, "%s", p.key().c_str());
 			const auto model = make_overlapping(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
@@ -1142,6 +1115,7 @@ void run_config_file(const Options& options, const std::string& path)
 			const auto model = make_tiled(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
 			//break;
+			//printf("here8\n");
 		}
 	}
 }
