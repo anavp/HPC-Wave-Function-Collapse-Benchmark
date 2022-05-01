@@ -13,7 +13,7 @@
 	mkdir -p build
 
 	CXX=g++
-	CPPFLAGS="--std=c++14 -Wall -Wno-sign-compare -O2 -g -DNDEBUG"
+	CPPFLAGS="-march=native -fopenmp --std=c++14 -Wall -Wno-sign-compare -O2 -g -DNDEBUG"
 	LDLIBS="-lstdc++ -lpthread -ldl"
 	OBJECTS=""
 
@@ -60,6 +60,7 @@
 #include <jo_gif.cpp>
 
 #include "arrays.hpp"
+#define DO_OPEN_MP true
 
 const auto kUsage = R"(
 wfc.bin [-h/--help] [--gif] [job=samples.cfg, ...]
@@ -383,7 +384,9 @@ OverlappingModel::OverlappingModel(
 bool OverlappingModel::propagate(Output* output) const
 {
 	bool did_change = false;
-
+	#if DO_OPEN_MP
+	#pragma omp for collapse(2) schedule(dynamic, 64)
+	#endif
 	for (int x1 = 0; x1 < _width; ++x1) {
 		for (int y1 = 0; y1 < _height; ++y1) {
 			if (!output->_changes.get(x1, y1)) { continue; }
@@ -650,35 +653,74 @@ TileModel::TileModel(const configuru::Config& config, std::string subset_name, i
 bool TileModel::propagate(Output* output) const
 {
 	bool did_change = false;
+	if(!_periodic_out){
+	#if DO_OPEN_MP	
+	#pragma omp for collapse(2) schedule(dynamic,8)
+	#endif
+	for (int x2 = 1; x2 < _width-1; ++x2) {
+		for (int y2 = 1; y2 < _height-1; ++y2) {
+			for (int d = 0; d < 4; ++d) {
+				int x1 = x2, y1 = y2;
+				if (d == 0) {
+						x1 = x2 - 1;
+				} else if (d == 1) {
+						y1 = y2 + 1;
+				} else if (d == 2) {
+						x1 = x2 + 1;
+				} else {
+						y1 = y2 - 1;
+				}
 
+				if (!output->_changes.get(x1, y1)) { continue; }
+
+				for (int t2 = 0; t2 < _num_patterns; ++t2) {
+					if (output->_wave.get(x2, y2, t2)) {
+						bool b = false;
+						for (int t1 = 0; t1 < _num_patterns && !b; ++t1) {
+							if (output->_wave.get(x1, y1, t1)) {
+								b = _propagator.get(d, t1, t2);
+							}
+						}
+						if (!b) {
+							output->_wave.set(x2, y2, t2, false);
+							output->_changes.set(x2, y2, true);
+							did_change = true;
+						}
+					}
+				}
+			}
+		}
+	}
+	}
+	else
+	{
+	#if DO_OPEN_MP  
+        #pragma omp for collapse(2) schedule(dynamic,8)
+        #endif
 	for (int x2 = 0; x2 < _width; ++x2) {
 		for (int y2 = 0; y2 < _height; ++y2) {
 			for (int d = 0; d < 4; ++d) {
 				int x1 = x2, y1 = y2;
 				if (d == 0) {
 					if (x2 == 0) {
-						if (!_periodic_out) { continue; }
 						x1 = _width - 1;
 					} else {
 						x1 = x2 - 1;
 					}
 				} else if (d == 1) {
 					if (y2 == _height - 1) {
-						if (!_periodic_out) { continue; }
 						y1 = 0;
 					} else {
 						y1 = y2 + 1;
 					}
 				} else if (d == 2) {
 					if (x2 == _width - 1) {
-						if (!_periodic_out) { continue; }
 						x1 = 0;
 					} else {
 						x1 = x2 + 1;
 					}
 				} else {
 					if (y2 == 0) {
-						if (!_periodic_out) { continue; }
 						y1 = _height - 1;
 					} else {
 						y1 = y2 - 1;
@@ -705,14 +747,16 @@ bool TileModel::propagate(Output* output) const
 			}
 		}
 	}
-
+	}
 	return did_change;
 }
 
 Image TileModel::image(const Output& output) const
 {
 	Image result(_width * _tile_size, _height * _tile_size, {});
-
+	#if DO_OPEN_MP
+	//#pragma omp for collapse(2) schedule(dynamic,8)
+	#endif
 	for (int x = 0; x < _width; ++x) {
 		for (int y = 0; y < _height; ++y) {
 			double sum = 0;
@@ -815,7 +859,7 @@ PatternPrevalence extract_patterns(
 	const auto reflect = [&](const Pattern& p){ return make_pattern(n, [&](size_t x, size_t y){ return p[n - 1 - x + y * n]; }); };
 
 	PatternPrevalence patterns;
-
+	//#pragma omp for collapse(2) schedule(dynamic,8)
 	for (size_t y : irange(periodic_in ? sample.height : sample.height - n + 1)) {
 		for (size_t x : irange(periodic_in ? sample.width : sample.width - n + 1)) {
 			std::array<Pattern, 8> ps;
@@ -1031,8 +1075,8 @@ std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const conf
 	const auto in_path = image_dir + image_filename;
 
 	const int    n              = config.get_or("n",             3);
-	const size_t out_width      = config.get_or("width",        48);
-	const size_t out_height     = config.get_or("height",       48);
+	const size_t out_width      = config.get_or("width",        96);
+	const size_t out_height     = config.get_or("height",       96);
 	const size_t symmetry       = config.get_or("symmetry",      8);
 	const bool   periodic_out   = config.get_or("periodic_out", true);
 	const bool   periodic_in    = config.get_or("periodic_in",  true);
@@ -1052,8 +1096,8 @@ std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const conf
 std::unique_ptr<Model> make_tiled(const std::string& image_dir, const configuru::Config& config)
 {
 	const std::string subdir     = config["subdir"].as_string();
-	const size_t      out_width  = config.get_or("width",    48);
-	const size_t      out_height = config.get_or("height",   48);
+	const size_t      out_width  = 5 * config.get_or("width",    48);
+	const size_t      out_height = 5 * config.get_or("height",   48);
 	const std::string subset     = config.get_or("subset",   std::string());
 	const bool        periodic   = config.get_or("periodic", false);
 
@@ -1084,7 +1128,8 @@ void run_config_file(const Options& options, const std::string& path)
 
 	if (samples.count("overlapping")) {
 		for (const auto& p : samples["overlapping"].as_object()) {
-			LOG_SCOPE_F(INFO, "%s", p.key().c_str());
+			break;
+		 	LOG_SCOPE_F(INFO, "%s", p.key().c_str());
 			const auto model = make_overlapping(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
 			p.value().check_dangling();
@@ -1096,6 +1141,7 @@ void run_config_file(const Options& options, const std::string& path)
 			LOG_SCOPE_F(INFO, "Tiled %s", p.key().c_str());
 			const auto model = make_tiled(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
+			//break;
 		}
 	}
 }

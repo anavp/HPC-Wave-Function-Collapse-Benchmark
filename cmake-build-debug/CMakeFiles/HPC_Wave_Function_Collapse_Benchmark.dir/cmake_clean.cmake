@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/benchmarks/hash_cache_benchmark.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/benchmarks/rw_mutex_benchmark.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/coroutine.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/dir_watcher.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/file_system.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/gl_lib.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/gl_lib_sdl.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/imgui_gl_lib.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/imgui_helpers.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/imgui_sdl.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/mem_map.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/movement_tracker.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/music.mm.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/os.mm.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/pvr.mm.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/shader_mngr.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/string_interning.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/strprintf.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/text_paint.mm.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/texture_mngr.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/tga.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/timer.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/unity_build.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/unity_build.mm.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/utf8.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/emilib/wav.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/examples/coroutine_example.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/examples/strprintf_example.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/tests/hash_test.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/emilib/tests/tests.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/libs/jo_gif.cpp.o"
+  "CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/main.cpp.o"
+  "HPC_Wave_Function_Collapse_Benchmark"
+  "HPC_Wave_Function_Collapse_Benchmark.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/HPC_Wave_Function_Collapse_Benchmark.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,664 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libs/emilib/configuru.hpp
+configuru.hpp
+-
+atomic
+-
+cmath
+-
+cstddef
+-
+cstring
+-
+functional
+-
+initializer_list
+-
+iosfwd
+-
+iterator
+-
+map
+-
+memory
+-
+stdexcept
+-
+string
+-
+utility
+-
+vector
+-
+cassert
+-
+configuru.hpp
+-
+algorithm
+-
+limits
+-
+ostream
+-
+cerrno
+-
+cstdlib
+-
+cstdlib
+-
+
+../libs/emilib/emilib/dir_watcher.hpp
+ctime
+-
+set
+-
+string
+-
+vector
+-
+
+../libs/emilib/emilib/file_system.hpp
+cstdio
+-
+string
+-
+vector
+-
+
+../libs/emilib/emilib/gl_lib.hpp
+memory
+-
+string
+-
+vector
+-
+loguru.hpp
+-
+gl_lib_fwd.hpp
+../libs/emilib/emilib/gl_lib_fwd.hpp
+
+../libs/emilib/emilib/gl_lib_fwd.hpp
+memory
+-
+string
+-
+utility
+-
+TargetConditionals.h
+../libs/emilib/emilib/TargetConditionals.h
+
+../libs/emilib/emilib/gl_lib_opengl.hpp
+gl_lib_fwd.hpp
+../libs/emilib/emilib/gl_lib_fwd.hpp
+OpenGLES/ES2/glext.h
+-
+glew.h
+-
+GL/glxew.h
+-
+OpenGL/gl.h
+-
+OpenGL/gl3.h
+-
+GL/glew.h
+-
+
+../libs/emilib/emilib/irange.hpp
+iterator
+-
+type_traits
+-
+loguru.hpp
+-
+
+../libs/emilib/emilib/mem_map.hpp
+cstddef
+-
+
+../libs/emilib/emilib/pvr.hpp
+emilib/gl_lib_fwd.hpp
+-
+
+../libs/emilib/emilib/strprintf.hpp
+string
+-
+
+../libs/emilib/loguru.hpp
+loguru.hpp
+-
+loguru.hpp
+-
+loguru.hpp
+-
+sal.h
+-
+cstdarg
+-
+sstream
+-
+string
+-
+loguru.hpp
+-
+algorithm
+-
+atomic
+-
+chrono
+-
+cstdarg
+-
+cstdio
+-
+cstdlib
+-
+cstring
+-
+mutex
+-
+regex
+-
+string
+-
+thread
+-
+vector
+-
+direct.h
+-
+signal.h
+-
+sys/stat.h
+-
+unistd.h
+-
+linux/limits.h
+-
+limits.h
+-
+TargetConditionals.h
+../libs/emilib/TargetConditionals.h
+cxxabi.h
+-
+dlfcn.h
+-
+execinfo.h
+-
+pthread.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.cpp
+coroutine.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.hpp
+thread
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.hpp
+atomic
+-
+condition_variable
+-
+functional
+-
+mutex
+-
+string
+-
+vector
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.cpp
+dir_watcher.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.hpp
+dirent.h
+-
+errno.h
+-
+fcntl.h
+-
+sys/event.h
+-
+sys/stat.h
+-
+sys/time.h
+-
+unistd.h
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.hpp
+ctime
+-
+set
+-
+string
+-
+vector
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.cpp
+file_system.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.hpp
+dirent.h
+-
+errno.h
+-
+stdexcept
+-
+sys/stat.h
+-
+sys/types.h
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.hpp
+cstdio
+-
+string
+-
+vector
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.cpp
+gl_lib.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.hpp
+algorithm
+-
+cstdint
+-
+loguru.hpp
+-
+gl_lib_opengl.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_opengl.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.hpp
+memory
+-
+string
+-
+vector
+-
+loguru.hpp
+-
+gl_lib_fwd.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_fwd.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_fwd.hpp
+memory
+-
+string
+-
+utility
+-
+TargetConditionals.h
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/TargetConditionals.h
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_opengl.hpp
+gl_lib_fwd.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_fwd.hpp
+OpenGLES/ES2/glext.h
+-
+glew.h
+-
+GL/glxew.h
+-
+OpenGL/gl.h
+-
+OpenGL/gl3.h
+-
+GL/glew.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.cpp
+gl_lib_sdl.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.hpp
+cmath
+-
+gl_lib_opengl.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_opengl.hpp
+os.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.hpp
+SDL2/SDL.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_gl_lib.cpp
+emilib/gl_lib.hpp
+-
+emilib/gl_lib_opengl.hpp
+-
+imgui/imgui.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.cpp
+imgui_helpers.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.hpp
+cstdint
+-
+string
+-
+vector
+-
+imgui/imgui.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.cpp
+imgui_sdl.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.hpp
+algorithm
+-
+codecvt
+-
+locale
+-
+string
+-
+imgui/imgui.h
+-
+SDL2/SDL.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.cpp
+mem_map.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.hpp
+stdexcept
+-
+string
+-
+sys/stat.h
+-
+sys/mman.h
+-
+fcntl.h
+-
+unistd.h
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.hpp
+cstddef
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.cpp
+movement_tracker.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.hpp
+cmath
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.hpp
+deque
+-
+utility
+-
+vector
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.hpp
+memory
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.mm
+music.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.hpp
+string
+-
+AudioToolbox/AudioToolbox.h
+-
+AVFoundation/AVFoundation.h
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.mm
+os.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.hpp
+Foundation/Foundation.h
+-
+GLKit/GLKit.h
+-
+UIKit/UIKit.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/pvr.mm
+loguru.hpp
+-
+emilib/gl_lib.hpp
+-
+GLKit/GLKit.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.cpp
+shader_mngr.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.hpp
+map
+-
+unordered_map
+-
+configuru.hpp
+-
+loguru.hpp
+-
+emilib/dir_watcher.hpp
+-
+emilib/file_system.hpp
+-
+emilib/gl_lib.hpp
+-
+emilib/strprintf.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.hpp
+memory
+-
+string
+-
+unordered_map
+-
+emilib/gl_lib_fwd.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.cpp
+string_interning.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.hpp
+cstdlib
+-
+mutex
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.hpp
+string
+-
+unordered_map
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.cpp
+strprintf.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.hpp
+cassert
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.hpp
+string
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.hpp
+limits
+-
+string
+-
+vector
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.mm
+text_paint.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.hpp
+map
+-
+loguru.hpp
+-
+CoreText/CoreText.h
+-
+Foundation/Foundation.h
+-
+UIKit/UIKit.h
+-
+UIKit/UIGraphics.h
+-
+AppKit/NSGraphicsContext.h
+-
+AppKit/NSStringDrawing.h
+-
+AppKit/NSAttributedString.h
+-
+AppKit/NSParagraphStyle.h
+-
+AppKit/NSText.h
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.cpp
+texture_mngr.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.hpp
+map
+-
+emilib/dir_watcher.hpp
+-
+emilib/file_system.hpp
+-
+emilib/gl_lib.hpp
+-
+emilib/irange.hpp
+-
+emilib/mem_map.hpp
+-
+emilib/pvr.hpp
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.hpp
+functional
+-
+memory
+-
+string
+-
+unordered_map
+-
+emilib/gl_lib_fwd.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/tga.cpp
+cstdint
+-
+cstdio
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.cpp
+timer.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.hpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.hpp
+chrono
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/unity_build.cpp
+coroutine.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.cpp
+dir_watcher.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.cpp
+file_system.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.cpp
+gl_lib.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.cpp
+gl_lib_sdl.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.cpp
+imgui_gl_lib.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_gl_lib.cpp
+imgui_helpers.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.cpp
+imgui_sdl.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.cpp
+mem_map.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.cpp
+movement_tracker.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.cpp
+shader_mngr.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.cpp
+string_interning.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.cpp
+strprintf.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.cpp
+texture_mngr.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.cpp
+tga.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/tga.cpp
+timer.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.cpp
+utf8.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.cpp
+wav.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.cpp
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/unity_build.mm
+unity_build.cpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/unity_build.cpp
+os.mm
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.mm
+music.mm
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.mm
+pvr.mm
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/pvr.mm
+text_paint.mm
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.mm
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.cpp
+utf8.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.hpp
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.hpp
+string
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.cpp
+wav.hpp
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.hpp
+cstdint
+-
+cstring
+-
+stdexcept
+-
+string
+-
+loguru.hpp
+-
+
+/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.hpp
+cstddef
+-
+
