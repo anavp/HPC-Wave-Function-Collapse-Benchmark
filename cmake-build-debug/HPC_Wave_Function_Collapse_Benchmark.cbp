@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="HPC_Wave_Function_Collapse_Benchmark"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\emilib\;CMake Files\libs\emilib\emilib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HPC_Wave_Function_Collapse_Benchmark">
+				<Option output="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/HPC_Wave_Function_Collapse_Benchmark" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/."/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/tests"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 HPC_Wave_Function_Collapse_Benchmark"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="HPC_Wave_Function_Collapse_Benchmark/fast">
+				<Option output="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/HPC_Wave_Function_Collapse_Benchmark" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/."/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib"/>
+					<Add directory="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/tests"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 HPC_Wave_Function_Collapse_Benchmark/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/adityakashilkar/Desktop/High\ Performance\ Computing/HPC-Wave-Function-Collapse-Benchmark/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/arrays.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/benchmarks/hash_cache_benchmark.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/benchmarks/rw_mutex_benchmark.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/configuru.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/coroutine.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/dir_watcher.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/file_system.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_fwd.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_opengl.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/gl_lib_sdl.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/hash_cache.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/hash_map.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/hash_set.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_gl_lib.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_gl_lib.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_helpers.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/imgui_sdl.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/irange.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/list_map.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/list_set.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/mem_map.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/movement_tracker.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/music.mm">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/os.mm">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/pvr.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/pvr.mm">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/read_write_mutex.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/shader_mngr.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/string_interning.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/strprintf.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/text_paint.mm">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/texture_mngr.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/tga.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/tga.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/timer.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/tuple_util.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/unity_build.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/unity_build.mm">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/utf8.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/wav.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/examples/coroutine_example.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/examples/strprintf_example.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/loguru.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/tests/catch.hpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/tests/hash_test.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/tests/tests.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/jo_gif.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/stb_image.h">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/stb_image_write.h">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/main.cpp">
+			<Option target="HPC_Wave_Function_Collapse_Benchmark"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\emilib\"/>
+		</Unit>
+		<Unit filename="/Users/adityakashilkar/Desktop/High Performance Computing/HPC-Wave-Function-Collapse-Benchmark/libs/emilib/emilib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\emilib\emilib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

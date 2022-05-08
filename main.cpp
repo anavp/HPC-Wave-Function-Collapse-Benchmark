@@ -13,7 +13,7 @@
 	mkdir -p build
 
 	CXX=g++
-	CPPFLAGS="--std=c++14 -Wall -Wno-sign-compare -O2 -g -DNDEBUG"
+	CPPFLAGS="-march=native -fopenmp --std=c++14 -Wall -Wno-sign-compare -O2 -g -DNDEBUG"
 	LDLIBS="-lstdc++ -lpthread -ldl"
 	OBJECTS=""
 
@@ -60,6 +60,9 @@
 #include <jo_gif.cpp>
 
 #include "arrays.hpp"
+#define DO_OPEN_MP false
+#include <omp.h>
+
 
 const auto kUsage = R"(
 wfc.bin [-h/--help] [--gif] [job=samples.cfg, ...]
@@ -383,7 +386,9 @@ OverlappingModel::OverlappingModel(
 bool OverlappingModel::propagate(Output* output) const
 {
 	bool did_change = false;
-
+	#if DO_OPEN_MP
+	#pragma omp for collapse(2) schedule(dynamic, 16)
+	#endif
 	for (int x1 = 0; x1 < _width; ++x1) {
 		for (int y1 = 0; y1 < _height; ++y1) {
 			if (!output->_changes.get(x1, y1)) { continue; }
@@ -650,7 +655,10 @@ TileModel::TileModel(const configuru::Config& config, std::string subset_name, i
 bool TileModel::propagate(Output* output) const
 {
 	bool did_change = false;
-
+	#if DO_OPEN_MP	
+	#pragma omp for collapse(2) schedule(dynamic,8)
+	#endif
+	
 	for (int x2 = 0; x2 < _width; ++x2) {
 		for (int y2 = 0; y2 < _height; ++y2) {
 			for (int d = 0; d < 4; ++d) {
@@ -705,14 +713,15 @@ bool TileModel::propagate(Output* output) const
 			}
 		}
 	}
-
 	return did_change;
 }
 
 Image TileModel::image(const Output& output) const
 {
 	Image result(_width * _tile_size, _height * _tile_size, {});
-
+	#if DO_OPEN_MP
+	//#pragma omp for collapse(2) schedule(dynamic,8)
+	#endif
 	for (int x = 0; x < _width; ++x) {
 		for (int y = 0; y < _height; ++y) {
 			double sum = 0;
@@ -815,7 +824,7 @@ PatternPrevalence extract_patterns(
 	const auto reflect = [&](const Pattern& p){ return make_pattern(n, [&](size_t x, size_t y){ return p[n - 1 - x + y * n]; }); };
 
 	PatternPrevalence patterns;
-
+	//#pragma omp for collapse(2) schedule(dynamic,8)
 	for (size_t y : irange(periodic_in ? sample.height : sample.height - n + 1)) {
 		for (size_t x : irange(periodic_in ? sample.width : sample.width - n + 1)) {
 			std::array<Pattern, 8> ps;
@@ -991,38 +1000,48 @@ void run_and_write(const Options& options, const std::string& name, const config
 {
 	const size_t limit       = config.get_or("limit",       0);
 	const size_t screenshots = config.get_or("screenshots", 2);
-
+	
+	#if DO_OPEN_MP
+        //#pragma omp for schedule(dynamic,8)
+	#endif
 	for (const auto i : irange(screenshots)) {
+	//for (long i=0;i<screenshots;i++) {
 		for (const auto attempt : irange(10)) {
+		//for (long attempt=0;attempt<10;attempt++) {
 			(void)attempt;
 			int seed = rand();
-
+			//printf("attempt= %lu\n",attempt);
 			Output output = create_output(model);
-
+			//printf("got output\n");
 			jo_gif_t gif;
-
+			//printf("Here1\n");
 			if (options.export_gif) {
 				const auto initial_image = model.image(output);
 				const auto gif_path = emilib::strprintf("output/%s_%lu.gif", name.c_str(), i);
 				const int gif_palette_size = 255; // TODO
 				gif = jo_gif_start(gif_path.c_str(), initial_image.width(), initial_image.height(), 0, gif_palette_size);
 			}
-
+			//printf("Here2\n");
 			const auto result = run(&output, model, seed, limit, options.export_gif ? &gif : nullptr);
 
 			if (options.export_gif) {
 				jo_gif_end(&gif);
 			}
-
+			//printf("Here3\n");
 			if (result == Result::kSuccess) {
 				const auto image = model.image(output);
+				//printf("Here5\n");
 				const auto out_path = emilib::strprintf("output/%s_%lu.png", name.c_str(), i);
+				//printf("Here6\n");
 				CHECK_F(stbi_write_png(out_path.c_str(), image.width(), image.height(), 4, image.data(), 0) != 0,
 				        "Failed to write image to %s", out_path.c_str());
+				//printf("Here7\n");
 				break;
 			}
+			//printf("Here4\n");
 		}
 	}
+	//printf("Here9\n");
 }
 
 std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const configuru::Config& config)
@@ -1052,8 +1071,8 @@ std::unique_ptr<Model> make_overlapping(const std::string& image_dir, const conf
 std::unique_ptr<Model> make_tiled(const std::string& image_dir, const configuru::Config& config)
 {
 	const std::string subdir     = config["subdir"].as_string();
-	const size_t      out_width  = config.get_or("width",    48);
-	const size_t      out_height = config.get_or("height",   48);
+	const size_t      out_width  = 2 * config.get_or("width",    48);
+	const size_t      out_height = 2 * config.get_or("height",   48);
 	const std::string subset     = config.get_or("subset",   std::string());
 	const bool        periodic   = config.get_or("periodic", false);
 
@@ -1084,7 +1103,8 @@ void run_config_file(const Options& options, const std::string& path)
 
 	if (samples.count("overlapping")) {
 		for (const auto& p : samples["overlapping"].as_object()) {
-			LOG_SCOPE_F(INFO, "%s", p.key().c_str());
+			//break;
+		 	LOG_SCOPE_F(INFO, "%s", p.key().c_str());
 			const auto model = make_overlapping(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
 			p.value().check_dangling();
@@ -1096,6 +1116,8 @@ void run_config_file(const Options& options, const std::string& path)
 			LOG_SCOPE_F(INFO, "Tiled %s", p.key().c_str());
 			const auto model = make_tiled(image_dir, p.value());
 			run_and_write(options, p.key(), p.value(), *model);
+			//break;
+			//printf("here8\n");
 		}
 	}
 }
@@ -1108,7 +1130,6 @@ int main(int argc, char* argv[])
 	Options options;
 
 	std::vector<std::string> files;
-
 	for (int i = 1; i < argc; ++i) {
 		if (strcmp(argv[i], "-h") == 0 || strcmp(argv[i], "--help") == 0) {
 			printf(kUsage);
@@ -1123,11 +1144,37 @@ int main(int argc, char* argv[])
 
 	if (files.empty()) {
 		files.push_back("samples.cfg");
+		files.push_back("samples2.cfg");
+		files.push_back("samples3.cfg");
+		files.push_back("samples4.cfg");
 	}
+	int num_threads = 4;
+	long size_per_thread = files.size()/num_threads;
+	//for (const auto& file : files) {
+	//#if DO_OPEN_MP
+	printf("size_per_thread = %d\n", size_per_thread);	
+	#pragma omp parallel num_threads(num_threads) 
+	{
+        //#endif
+        int t = omp_get_thread_num();
+	int start_index = t*size_per_thread;
+        int end_index = (t+1)*size_per_thread;
+	printf("start_index %d to end_index %d\n", start_index, end_index);
+	//#pragma omp barrier
+	//#pragma omp for schedule(dynamic,8)
+	for(int i = start_index; i < end_index; i++){
+		printf("file num %d\n",i);
+		run_config_file(options, files[i]);
+	}
+	//#if DO_OPEN_MP
+	//#pragma omp barrier
+	}
+	//#endif
+	
 
-	for (const auto& file : files) {
-		run_config_file(options, file);
-	}
+	//for (const auto& file : files) {
+	//	run_config_file(options, file);
+	//}
 	auto stop = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 

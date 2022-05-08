@@ -1,0 +1,87 @@
+cmake_minimum_required(VERSION 3.20)
+project(HPC_Wave_Function_Collapse_Benchmark)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(.)
+include_directories(libs)
+include_directories(libs/emilib)
+include_directories(libs/emilib/emilib)
+include_directories(libs/emilib/tests)
+add_subdirectory("libs/emilib/emilib")
+add_subdirectory("libs/emilib")
+
+
+
+add_executable(HPC_Wave_Function_Collapse_Benchmark
+        libs/emilib/benchmarks/hash_cache_benchmark.cpp
+        libs/emilib/benchmarks/rw_mutex_benchmark.cpp
+        libs/emilib/emilib/coroutine.cpp
+        libs/emilib/emilib/coroutine.hpp
+        libs/emilib/emilib/dir_watcher.cpp
+        libs/emilib/emilib/dir_watcher.hpp
+        libs/emilib/emilib/file_system.cpp
+        libs/emilib/emilib/file_system.hpp
+        libs/emilib/emilib/gl_lib.cpp
+        libs/emilib/emilib/gl_lib.hpp
+        libs/emilib/emilib/gl_lib_fwd.hpp
+        libs/emilib/emilib/gl_lib_opengl.hpp
+        libs/emilib/emilib/gl_lib_sdl.cpp
+        libs/emilib/emilib/gl_lib_sdl.hpp
+        libs/emilib/emilib/hash_cache.hpp
+        libs/emilib/emilib/hash_map.hpp
+        libs/emilib/emilib/hash_set.hpp
+        libs/emilib/emilib/imgui_gl_lib.cpp
+        libs/emilib/emilib/imgui_gl_lib.hpp
+        libs/emilib/emilib/imgui_helpers.cpp
+        libs/emilib/emilib/imgui_helpers.hpp
+        libs/emilib/emilib/imgui_sdl.cpp
+        libs/emilib/emilib/imgui_sdl.hpp
+        libs/emilib/emilib/irange.hpp
+        libs/emilib/emilib/list_map.hpp
+        libs/emilib/emilib/list_set.hpp
+        libs/emilib/emilib/mem_map.cpp
+        libs/emilib/emilib/mem_map.hpp
+        libs/emilib/emilib/movement_tracker.cpp
+        libs/emilib/emilib/movement_tracker.hpp
+        libs/emilib/emilib/music.hpp
+        libs/emilib/emilib/music.mm
+        libs/emilib/emilib/os.hpp
+        libs/emilib/emilib/os.mm
+        libs/emilib/emilib/pvr.hpp
+        libs/emilib/emilib/pvr.mm
+        libs/emilib/emilib/read_write_mutex.hpp
+        libs/emilib/emilib/shader_mngr.cpp
+        libs/emilib/emilib/shader_mngr.hpp
+        libs/emilib/emilib/string_interning.cpp
+        libs/emilib/emilib/string_interning.hpp
+        libs/emilib/emilib/strprintf.cpp
+        libs/emilib/emilib/strprintf.hpp
+        libs/emilib/emilib/text_paint.hpp
+        libs/emilib/emilib/text_paint.mm
+        libs/emilib/emilib/texture_mngr.cpp
+        libs/emilib/emilib/texture_mngr.hpp
+        libs/emilib/emilib/tga.cpp
+        libs/emilib/emilib/tga.hpp
+        libs/emilib/emilib/timer.cpp
+        libs/emilib/emilib/timer.hpp
+        libs/emilib/emilib/tuple_util.hpp
+        libs/emilib/emilib/unity_build.cpp
+        libs/emilib/emilib/unity_build.mm
+        libs/emilib/emilib/utf8.cpp
+        libs/emilib/emilib/utf8.hpp
+        libs/emilib/emilib/wav.cpp
+        libs/emilib/emilib/wav.hpp
+        libs/emilib/examples/coroutine_example.cpp
+        libs/emilib/examples/strprintf_example.cpp
+        libs/emilib/tests/catch.hpp
+        libs/emilib/tests/hash_test.cpp
+        libs/emilib/tests/tests.cpp
+        libs/emilib/configuru.hpp
+        libs/emilib/loguru.hpp
+        libs/jo_gif.cpp
+        libs/stb_image.h
+        libs/stb_image_write.h
+        arrays.hpp
+        libs.cpp
+        main.cpp)

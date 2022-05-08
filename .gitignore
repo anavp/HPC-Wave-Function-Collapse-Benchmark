@@ -1,5 +1,4 @@
 *.bin
 *.sublime-*
 build/
-output/
 .DS_Store
